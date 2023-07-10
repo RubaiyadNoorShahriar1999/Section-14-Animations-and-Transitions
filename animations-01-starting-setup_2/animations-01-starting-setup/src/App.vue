@@ -1,14 +1,14 @@
 <template>
-  <div class="container">
+  <!-- <div class="container">
     <users-list></users-list>
   </div>
   <div class="container">
     <div class="block" :class="{ animate: animatedBlock }"></div>
     <button @click="animateBlock">Animate</button>
   </div>
-  <div class="container">
-    <!-- Transition must contain one direct child -->
-    <transition
+  <div class="container"> -->
+  <!-- Transition must contain one direct child -->
+  <!-- <transition
       :css="false"
       @before-enter="beforeEnter"
       @enter="enter"
@@ -23,9 +23,9 @@
     </transition>
     <button @click="toggleParagraph">Toggle Paragraph</button>
   </div>
-  <div class="container">
-    <!-- Here we can use transition in case of multiple child cause they are actually alternatives. One can only be added to DOM at a time. Still it will show error if we use 2 v-if cause vue doesn't monitor v-if. So we need to use v-else here.  -->
-    <transition name="fade-button" mode="out-in">
+  <div class="container"> -->
+  <!-- Here we can use transition in case of multiple child cause they are actually alternatives. One can only be added to DOM at a time. Still it will show error if we use 2 v-if cause vue doesn't monitor v-if. So we need to use v-else here.  -->
+  <!-- <transition name="fade-button" mode="out-in">
       <button @click="showUsers" v-if="!usersAreVisible">Show Users</button>
       <button @click="hideUsers" v-else>Hide Users</button>
     </transition>
@@ -37,14 +37,19 @@
 
   <div class="container">
     <button @click="showDialog">Show Dialog</button>
-  </div>
+  </div> -->
+  <router-view v-slot="slotProps">
+    <Transition name="route" mode="out-in">
+      <component :is="slotProps.Component"></component>
+    </Transition>
+  </router-view>
 </template>
 
 <script>
-import UsersList from './components/UsersList.vue';
+// import UsersList from './components/UsersList.vue';
 export default {
   components: {
-    UsersList,
+    // UsersList,
   },
   data() {
     return {
@@ -229,6 +234,17 @@ button:active {
   opacity: 1;
 }
 
+.route-enter-from {
+}
+.route-enter-active {
+  animation: slide-scale 0.4s ease-out;
+}
+.route-enter-to {
+}
+
+.route-leave-active {
+  animation: slide-scale 0.4s ease-in;
+}
 @keyframes slide-scale {
   0% {
     transform: translateX(0) scale(1);
