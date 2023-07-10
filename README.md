@@ -3,7 +3,17 @@ Animations and Transitions in Vue 3
 
 <h2>Section 14 contains:</h2>
 
-     1. Running...
+     1. Basic Animation in Vue 3
+     2. Transition component
+     3. Using Custom CSS Class names
+     4. Transitioning between multiple elements
+     5. Transition Events
+     6. Javascript transitions
+     7. Disabling CSS Transitions
+     8. Animated Lists
+     9. Usage of "transition-group"
+     10. Animated List item movements
+     11. Animating Route changes
 
 <h2>To run this project</h2>
 
